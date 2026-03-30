@@ -10,8 +10,9 @@ func _ready() -> void:
 		push_error("Interactions: camera is not assigned on " + str(get_path()))
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and _current_target != null:
+	if event.is_action_pressed("interact") and is_instance_valid(_current_target):
 		_current_target.interact()
+		_current_target = null
 
 func _physics_process(_delta: float) -> void:
 	_current_target = _cast_interact_ray()
@@ -38,8 +39,8 @@ func _cast_interact_ray() -> Node3D:
 
 	# Walk up to scene root of the hit object looking for "interactable" group
 	var node: Node = result.collider
-	while node != null:
-		if node.is_in_group("interactable"):
+	while node != null and node != get_tree().root:
+		if node.is_in_group("interactable") and node.has_method("interact"):
 			return node as Node3D
 		node = node.get_parent()
 

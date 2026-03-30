@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bhwtglpfo6u87" path="res://scripts/player/player_controler.gd" id="1_dovo2"]
 [ext_resource type="Script" uid="uid://4qk6cfvukcye" path="res://scripts/player/camera_3d.gd" id="2_gmlin"]
 [ext_resource type="Script" uid="uid://s4fvd4wy8fe6" path="res://scripts/player/interactions.gd" id="3_inter"]
+[ext_resource type="Script" uid="uid://bmw1fwkcbfvrt" path="res://scripts/player/flashlight.gd" id="4_flas"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7p2l"]
 radius = 0.3
@@ -12,7 +13,7 @@ height = 1.6
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dovo2"]
 transparency = 1
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 0.23529412)
+albedo_color = Color(1, 1, 1, 0.15686275)
 roughness = 0.19
 
 [sub_resource type="SphereMesh" id="SphereMesh_gmlin"]
@@ -22,11 +23,11 @@ height = 0.04
 radial_segments = 16
 rings = 8
 
-[node name="Player" type="CharacterBody3D" unique_id=1989287226 groups=["interactable"]]
+[node name="Player" type="CharacterBody3D" unique_id=1989287226]
 floor_snap_length = 0.25
 script = ExtResource("1_dovo2")
 walk_speed = 3.0
-sprint_speed = 6.0
+sprint_speed = 4.0
 
 [node name="Interactions" type="Node" parent="." unique_id=2001000001 node_paths=PackedStringArray("camera")]
 script = ExtResource("3_inter")
@@ -40,20 +41,22 @@ shape = SubResource("CapsuleShape3D_x7p2l")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62, 0)
 script = ExtResource("2_gmlin")
 
-[node name="flashlight" parent="Camera3D" unique_id=408853794 instance=ExtResource("1_8afob")]
-transform = Transform3D(-1.09241025e-08, -2.860577e-10, -0.25, -0.0065442375, 0.24991433, 0, 0.24991433, 0.0065442375, -1.0927847e-08, 0.2, -1.0960277, 0)
+[node name="flashlight" parent="." unique_id=408853794 instance=ExtResource("1_8afob")]
+transform = Transform3D(-1.09241025e-08, -2.860577e-10, -0.25, -0.01753923, 0.249384, 4.810485e-10, 0.249384, 0.01753923, -1.0917254e-08, 0.6372215, -0.47602773, -0.8650372)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D/flashlight" unique_id=876085931]
-transform = Transform3D(-4.371139e-08, -2.015344e-24, 1, -4.6105697e-17, 1, 0, -1, -4.6105697e-17, -4.371139e-08, 0, 0, 0)
+[node name="SpotLight3D" type="SpotLight3D" parent="flashlight" unique_id=876085931]
+transform = Transform3D(-4.371139e-08, -2.015344e-24, 1, -4.6105697e-17, 1, 0, -1, -4.6105697e-17, -4.371139e-08, -1.8570738, 0.12072945, 0)
 light_color = Color(0.8946528, 0.8378028, 0.5701827, 1)
-light_energy = 2.5
+light_energy = 2.7
 light_volumetric_fog_energy = 0.75
 light_bake_mode = 1
-spot_range = 10.0
-spot_angle = 35.0
-spot_angle_attenuation = 0.84089667
+spot_range = 6.0
+spot_attenuation = 1.08
+spot_angle = 47.54
+spot_angle_attenuation = 4.756827
+script = ExtResource("4_flas")
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="Camera3D/flashlight" unique_id=1678293897]
+[node name="CPUParticles3D" type="CPUParticles3D" parent="flashlight" unique_id=1678293897]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.63454, 7.5126123, 4.172325e-07)
 amount = 75
 lifetime = 0.2

@@ -1,11 +1,14 @@
-extends Node
+extends Node3D
 
+# Hide this gate node when the player collects enough eggs.
+@export var eggs_required: int = 1
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	GameManager.egg_collected.connect(_on_egg_collected)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_egg_collected(total: int) -> void:
+	if total >= eggs_required:
+		visible = false
+		# Disable all collision shapes so the player can walk through
+		for child in find_children("*", "CollisionShape3D", true, false):
+			child.disabled = true

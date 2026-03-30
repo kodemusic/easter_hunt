@@ -1,0 +1,92 @@
+# Easter Hunt — Project Progress
+
+> Update this file as features are completed. Use it as a reference at the start of each coding session.
+
+---
+
+## Player
+
+| System | Status | File | Notes |
+|--------|--------|------|-------|
+| First-person movement (WASD + sprint) | ✅ Done | `scripts/player/player_controler.gd` | walk 3.0, sprint 6.0 (set in scene) |
+| Mouse look (yaw + pitch) | ✅ Done | `scripts/player/player_controler.gd` | pitch clamped ±80° |
+| Gravity | ✅ Done | `scripts/player/player_controler.gd` | 18 m/s² |
+| Head bob | ✅ Done | `scripts/player/player_controler.gd` | amp 0.05, freq 2.0, scales with speed |
+| Flashlight (SpotLight3D + particles) | ✅ Done | `scenes/player/player.tscn` | attached to Camera3D, warm color |
+| Flashlight flicker (2-layer + bunny proximity) | ✅ Done | `scripts/player/flashlight.gd` | micro ±0.05 every frame; macro dip event every 3–8s (1–2s near bunny); call `set_bunny_near(true)` from bunny_ai |
+| Interaction raycast (press E) | ✅ Done | `scripts/player/interactions.gd` | 2.5m range, hits Area3D + bodies, walks node hierarchy for "interactable" group |
+| Camera script | ⬜ Pending | `scripts/player/camera_3d.gd` | placeholder — no effects yet |
+
+---
+
+## Pickups
+
+| System | Status | File | Notes |
+|--------|--------|------|-------|
+| EggPickup scene | ✅ Done | `scenes/pickups/EggPickup.tscn` | egg.glb + Area3D (r=0.4) at root level, "interactable" group, egg_pickup.gd attached |
+| egg_pickup.gd — interact() stub | ✅ Done | `scripts/pickups/egg_pickup.gd` | calls queue_free(), prints name |
+| egg_pickup.gd — signal to GameManager | ⬜ Pending | `scripts/pickups/egg_pickup.gd` | needs egg_collected signal → GameManager |
+| Egg counter (total collected) | ⬜ Pending | `autoload/GameManager.gd` | — |
+| CheckpointShrine | ⬜ Pending | `scenes/pickups/CheckpointShrine.tscn` / `scripts/pickups/checkpoint.gd` | placeholder |
+
+---
+
+## Level / Progression
+
+| System | Status | File | Notes |
+|--------|--------|------|-------|
+| Level layout | ✅ Done | `scenes/level/level01.tscn` | built and imported |
+| Gate (opens on egg count) | ⬜ Pending | `scripts/level/gate.gd` | placeholder |
+| Door | ⬜ Pending | `scripts/level/door.gd` | placeholder |
+| Trigger zones | ⬜ Pending | `scripts/level/trigger_zone.gd` | placeholder |
+
+---
+
+## Enemies
+
+| System | Status | File | Notes |
+|--------|--------|------|-------|
+| Bunny visual presence | ✅ Done | `scenes/enemies/rabbit.tscn` | works visually |
+| Bunny AI | ⬜ Pending | `scripts/enemies/bunny_ai.gd` | placeholder |
+| Patrol | ⬜ Pending | `scripts/enemies/patrol.gd` | placeholder |
+| Enemy manager | ⬜ Pending | `scripts/managers/EnemieManager.gd` | placeholder |
+
+---
+
+## UI
+
+| System | Status | File | Notes |
+|--------|--------|------|-------|
+| HUD (egg counter display) | ⬜ Pending | `scripts/ui/hud.gd` | placeholder |
+| Death screen | ⬜ Pending | `scripts/ui/death_screen.gd` | placeholder |
+| Win screen | ⬜ Pending | `scripts/ui/win_screen.gd` | placeholder |
+
+---
+
+## Autoload / Global
+
+| System | Status | File | Notes |
+|--------|--------|------|-------|
+| GameManager | ⬜ Pending | `autoload/GameManager.gd` | placeholder — will hold egg count, signals |
+
+---
+
+## Input Actions (Project Settings → Input Map)
+
+| Action | Status | Key |
+|--------|--------|-----|
+| move_forward | ✅ Done | W |
+| move_back | ✅ Done | S |
+| move_left | ✅ Done | A |
+| move_right | ✅ Done | D |
+| sprint | ✅ Done | Shift |
+| interact | ⬜ Verify | E — add if missing |
+| ui_cancel | ✅ Done | Escape |
+
+---
+
+## Known Issues / Bugs Fixed
+
+- `collide_with_areas = true` required on raycast query — Area3D eggs were invisible to ray by default
+- `NodePath("Camera3D")` was wrong (looked for child); fixed to `NodePath("../Camera3D")` (sibling)
+- EggPickup Area3D was nested inside scaled egg_1 (0.02×) making collision sphere 0.05 world units — moved to root, radius now 0.4

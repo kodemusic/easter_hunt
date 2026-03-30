@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dvj0vqpgkpu4c" path="res://assets/models/tunnels/Sewer_level.glb" id="1_hyk8p"]
 [ext_resource type="PackedScene" uid="uid://c0n6b5iw7b2ht" path="res://scenes/player/player.tscn" id="2_iuonh"]
+[ext_resource type="Script" uid="uid://cusp2p6lxgjxw" path="res://scripts/level/door.gd" id="2_ow5a4"]
+[ext_resource type="Script" uid="uid://cs6ekq6hrl0dv" path="res://scripts/level/gate.gd" id="3_hujxm"]
 [ext_resource type="PackedScene" uid="uid://byw75x0w32ohl" path="res://scenes/enemies/rabbit.tscn" id="3_k2fmo"]
 [ext_resource type="PackedScene" uid="uid://dx3xdi6drnu8x" path="res://scenes/pickups/EggPickup.tscn" id="4_l3cfh"]
 
@@ -316,7 +318,10 @@ shape = SubResource("ConcavePolygonShape3D_6llfj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="level_build/Serwers_endcap_root_005/Serwers_011_mesh_005/StaticBody3D" unique_id=1110264016]
 shape = SubResource("ConcavePolygonShape3D_0bhws")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="level_build/SerwersP_mini_tunnel_root_006/SerwersP_003_mesh_006" parent_id_path=PackedInt32Array(473654998, 1504656224) index="0" unique_id=217144318]
+[node name="SerwersP_003_mesh_006" parent="level_build/SerwersP_mini_tunnel_root_006" parent_id_path=PackedInt32Array(473654998, 909409591) index="0" unique_id=1504656224]
+transform = Transform3D(0.99999994, 2.842171e-14, 0, 0, 0, -1, -2.842171e-14, 0.99999994, 0, 0, 0.74852085, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="level_build/SerwersP_mini_tunnel_root_006/SerwersP_003_mesh_006" index="0" unique_id=217144318]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="level_build/SerwersP_mini_tunnel_root_006/SerwersP_003_mesh_006/StaticBody3D" unique_id=1366335598]
 shape = SubResource("ConcavePolygonShape3D_62atk")
@@ -412,10 +417,16 @@ transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.00083732605, 1.4101659, -
 [node name="CollisionShape3D" type="CollisionShape3D" parent="level_build/Serwers_endcap_root_007/Serwers_011_mesh_007/StaticBody3D" unique_id=1380235256]
 shape = SubResource("ConcavePolygonShape3D_7dg2i")
 
+[node name="SerwersP_gate_root_005" parent="level_build" index="45" unique_id=420385604]
+script = ExtResource("2_ow5a4")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="level_build/SerwersP_gate_root_005/SerwersP1_010_mesh_002" parent_id_path=PackedInt32Array(473654998, 836956896) index="0" unique_id=542649994]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="level_build/SerwersP_gate_root_005/SerwersP1_010_mesh_002/StaticBody3D" unique_id=354593484]
 shape = SubResource("ConcavePolygonShape3D_08tbl")
+
+[node name="SerwersP_gate_root_006" parent="level_build" index="46" unique_id=1804652874]
+script = ExtResource("3_hujxm")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="level_build/SerwersP_gate_root_006/SerwersP1_010_mesh_003" parent_id_path=PackedInt32Array(473654998, 1103862196) index="0" unique_id=1766551690]
 
@@ -432,6 +443,7 @@ transform = Transform3D(-5.2453668e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.2453668e-
 
 [node name="EggPickup" parent="eggs" unique_id=119197925 instance=ExtResource("4_l3cfh")]
 transform = Transform3D(0.27174252, 1.935948, 0.4222111, -1.9814531, 0.26550174, 0.05790336, 2.2202093e-08, -0.42616323, 1.9540691, -20.668781, -0.2865206, -7.985988)
+script = null
 
 [editable path="level_build"]
 [editable path="Player"]
