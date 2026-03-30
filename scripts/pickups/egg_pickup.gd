@@ -1,11 +1,7 @@
-extends Node
+extends Node3D
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+# Called by interactions.gd when the player looks at this and presses E.
+# Full implementation (signal to GameManager, queue_free, etc.) comes next task.
+func interact() -> void:
+	print("egg picked up: ", name)
+	queue_free()

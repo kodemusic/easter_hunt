@@ -1,3 +1,33 @@
 [gd_scene format=3 uid="uid://dx3xdi6drnu8x"]
 
-[node name="EggPickup" type="Node3D" unique_id=119197925]
+[ext_resource type="PackedScene" uid="uid://ujcpxl5v14g3" path="res://assets/models/props/egg.glb" id="1_771i8"]
+[ext_resource type="Texture2D" uid="uid://dyk5nnseo5cdm" path="res://assets/models/props/egg_egg.png" id="2_uutp1"]
+[ext_resource type="Script" uid="uid://dqolyje4wa8w5" path="res://scripts/pickups/egg_pickup.gd" id="3_egg1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hjofd"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(1.1364014, 0.38354117, 1.1364014, 1)
+albedo_texture = ExtResource("2_uutp1")
+metallic = 0.08
+roughness = 0.07
+emission = Color(0.9660328, 0.00096685055, 0.9951903, 1)
+emission_energy_multiplier = 2.3
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_uutp1"]
+radius = 0.4
+
+[node name="EggPickup" type="Node3D" unique_id=119197925 groups=["interacable", "interactable"]]
+script = ExtResource("3_egg1")
+
+[node name="egg_1" parent="." unique_id=1832065214 instance=ExtResource("1_771i8")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
+
+[node name="EGG" parent="egg_1" index="0" unique_id=659067164]
+surface_material_override/0 = SubResource("StandardMaterial3D_hjofd")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=550415445]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=818526443]
+shape = SubResource("SphereShape3D_uutp1")
+
+[editable path="egg_1"]
