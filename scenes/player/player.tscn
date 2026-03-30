@@ -32,6 +32,7 @@ sprint_speed = 4.0
 [node name="Interactions" type="Node" parent="." unique_id=2001000001 node_paths=PackedStringArray("camera")]
 script = ExtResource("3_inter")
 camera = NodePath("../Camera3D")
+interact_distance = 1.8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1359081026]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
@@ -41,22 +42,21 @@ shape = SubResource("CapsuleShape3D_x7p2l")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62, 0)
 script = ExtResource("2_gmlin")
 
-[node name="flashlight" parent="." unique_id=408853794 instance=ExtResource("1_8afob")]
-transform = Transform3D(-1.09241025e-08, -2.860577e-10, -0.25, -0.01753923, 0.249384, 4.810485e-10, 0.249384, 0.01753923, -1.0917254e-08, 0.6372215, -0.47602773, -0.8650372)
+[node name="flashlight" parent="Camera3D" unique_id=408853794 instance=ExtResource("1_8afob")]
+transform = Transform3D(-1.09241025e-08, -2.860577e-10, -0.25, -0.0016013235, 0.24999487, -2.1608004e-10, 0.24999487, 0.0016013235, -1.0925709e-08, 0.18, -0.120000005, 0.85)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="flashlight" unique_id=876085931]
-transform = Transform3D(-4.371139e-08, -2.015344e-24, 1, -4.6105697e-17, 1, 0, -1, -4.6105697e-17, -4.371139e-08, -1.8570738, 0.12072945, 0)
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D/flashlight" unique_id=876085931]
+transform = Transform3D(-4.371139e-08, -4.833079e-23, 1, -7.872324e-17, 1, 4.4889688e-23, -1, -7.872324e-17, -4.371139e-08, -5.856992, 0.09510827, 1.7881393e-07)
 light_color = Color(0.8946528, 0.8378028, 0.5701827, 1)
 light_energy = 2.7
-light_volumetric_fog_energy = 0.75
 light_bake_mode = 1
-spot_range = 6.0
-spot_attenuation = 1.08
-spot_angle = 47.54
-spot_angle_attenuation = 4.756827
+spot_range = 8.0
+spot_angle = 47.0
+spot_angle_attenuation = 9.513649
 script = ExtResource("4_flas")
+base_energy = 5.265
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="flashlight" unique_id=1678293897]
+[node name="CPUParticles3D" type="CPUParticles3D" parent="Camera3D/flashlight" unique_id=1678293897]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.63454, 7.5126123, 4.172325e-07)
 amount = 75
 lifetime = 0.2

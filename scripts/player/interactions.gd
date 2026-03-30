@@ -15,33 +15,24 @@ func _unhandled_input(event: InputEvent) -> void:
 		_current_target = null
 
 func _physics_process(_delta: float) -> void:
-	_current_target = _cast_interact_ray()
+	_current_target = _find_nearest_interactable()
 
-func _cast_interact_ray() -> Node3D:
+func _find_nearest_interactable() -> Node3D:
 	if camera == null:
 		return null
 
-	var space := get_viewport().get_world_3d().direct_space_state
 	var origin := camera.global_position
-	var forward := -camera.global_transform.basis.z
-	var end := origin + forward * interact_distance
+	var best: Node3D = null
+	var best_dist := interact_distance
 
-	var query := PhysicsRayQueryParameters3D.create(origin, end)
-	query.collide_with_areas = true
-	# Exclude the player body so we don't hit ourselves
-	var player := get_parent()
-	if player is CollisionObject3D:
-		query.exclude = [player.get_rid()]
+	for node in get_tree().get_nodes_in_group("interactable"):
+		if not node is Node3D:
+			continue
+		if not node.has_method("interact"):
+			continue
+		var dist := origin.distance_to((node as Node3D).global_position)
+		if dist < best_dist:
+			best = node
+			best_dist = dist
 
-	var result := space.intersect_ray(query)
-	if result.is_empty():
-		return null
-
-	# Walk up to scene root of the hit object looking for "interactable" group
-	var node: Node = result.collider
-	while node != null and node != get_tree().root:
-		if node.is_in_group("interactable") and node.has_method("interact"):
-			return node as Node3D
-		node = node.get_parent()
-
-	return null
+	return best

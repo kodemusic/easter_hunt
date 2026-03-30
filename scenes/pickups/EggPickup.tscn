@@ -16,10 +16,10 @@ emission_energy_multiplier = 2.3
 [sub_resource type="SphereShape3D" id="SphereShape3D_uutp1"]
 radius = 0.4
 
-[node name="EggPickup" type="Node3D" unique_id=119197925 groups=["interacable", "interactable"]]
+[node name="EggPickup" type="Node3D" unique_id=119197925 groups=["interactable"]]
 script = ExtResource("3_egg1")
 
-[node name="egg_1" parent="." unique_id=1832065214 instance=ExtResource("1_771i8")]
+[node name="egg_1" parent="." unique_id=1832065214 groups=["interactable"] instance=ExtResource("1_771i8")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
 
 [node name="EGG" parent="egg_1" index="0" unique_id=659067164]
