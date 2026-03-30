@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b8b5ei1rxrncr"]
+
+[ext_resource type="PackedScene" uid="uid://d0667d82m6s42" path="res://assets/models/bunny/T-Pose.fbx" id="1_6ty64"]
+
+[node name="T-Pose" unique_id=1900520777 instance=ExtResource("1_6ty64")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)

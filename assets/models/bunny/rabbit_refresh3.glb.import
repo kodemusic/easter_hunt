@@ -1,0 +1,63 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://c1x78kka4r2bk"
+path="res://.godot/imported/rabbit_refresh3.glb-103b539991f7a47f9c38cdf08a8d74aa.scn"
+
+[deps]
+
+source_file="res://assets/models/bunny/rabbit_refresh3.glb"
+dest_files=["res://.godot/imported/rabbit_refresh3.glb-103b539991f7a47f9c38cdf08a8d74aa.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="bunny"
+nodes/root_script=Resource("uid://dffqal0mkc23g", "res://scripts/enemies/bunny_ai.gd")
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=true
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"meshes": {
+"rabbit_refresh3_body_012mesh": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/bunny/extra/rabbit_refresh3_body_012mesh.res",
+"save_to_file/path": "uid://m4cm1f2xchdv"
+},
+"rabbit_refresh3_headmesh": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/bunny/extra/rabbit_refresh3_headmesh.res",
+"save_to_file/path": "uid://dtu5ht5th7jeh"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1
