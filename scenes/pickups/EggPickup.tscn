@@ -16,7 +16,10 @@ emission_energy_multiplier = 2.3
 [sub_resource type="SphereShape3D" id="SphereShape3D_uutp1"]
 radius = 0.4
 
-[node name="EggPickup" type="Node3D" unique_id=119197925 groups=["interactable"]]
+[sub_resource type="SphereShape3D" id="SphereShape3D_hjofd"]
+radius = 0.0565604
+
+[node name="EggPickup" type="CharacterBody3D" unique_id=2032344256 groups=["interactable"]]
 script = ExtResource("3_egg1")
 
 [node name="egg_1" parent="." unique_id=1832065214 groups=["interactable"] instance=ExtResource("1_771i8")]
@@ -29,5 +32,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_hjofd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=818526443]
 shape = SubResource("SphereShape3D_uutp1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=672054141]
+shape = SubResource("SphereShape3D_hjofd")
 
 [editable path="egg_1"]

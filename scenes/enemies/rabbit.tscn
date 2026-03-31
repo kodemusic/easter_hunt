@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://byw75x0w32ohl"]
 
-[ext_resource type="ArrayMesh" uid="uid://dcd8ok8ts1nqw" path="res://assets/models/bunny/extra/rabbit_refresh3_headmesh.res" id="1_cmsl5"]
-[ext_resource type="ArrayMesh" uid="uid://c4bowsetvsv3d" path="res://assets/models/bunny/extra/rabbit_refresh3_body_012mesh.res" id="2_2b3ut"]
+[ext_resource type="Script" uid="uid://dffqal0mkc23g" path="res://scripts/enemies/bunny_ai.gd" id="1_7hee8"]
+[ext_resource type="ArrayMesh" uid="uid://dtu5ht5th7jeh" path="res://assets/models/bunny/extra/rabbit_refresh3_headmesh.res" id="1_cmsl5"]
+[ext_resource type="ArrayMesh" uid="uid://m4cm1f2xchdv" path="res://assets/models/bunny/extra/rabbit_refresh3_body_012mesh.res" id="2_2b3ut"]
 [ext_resource type="Animation" uid="uid://lh30afocqu3e" path="res://assets/models/bunny/anim/idle.anim" id="3_46k04"]
 [ext_resource type="Animation" uid="uid://crunm3gpxk63t" path="res://assets/models/bunny/anim/stab.anim" id="4_7hee8"]
 [ext_resource type="Animation" uid="uid://ipfm4qfsr462" path="res://assets/models/bunny/anim/walk.anim" id="5_7jhs5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7jhs5"]
+radius = 0.21826172
 
 [sub_resource type="Skin" id="Skin_q7wfq"]
 resource_name = "Skin"
@@ -144,7 +148,12 @@ _data = {
 &"walk": ExtResource("5_7jhs5")
 }
 
-[node name="Rabbit" type="Node3D" unique_id=109739741]
+[node name="Rabbit" type="CharacterBody3D" unique_id=81422863]
+script = ExtResource("1_7hee8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=750622182]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_7jhs5")
 
 [node name="Skeleton3D" type="Skeleton3D" parent="." unique_id=629644449]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.3206193, 0)
