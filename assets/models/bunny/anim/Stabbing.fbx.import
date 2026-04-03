@@ -1,15 +1,15 @@
 [remap]
 
-importer="animation_library"
+importer="scene"
 importer_version=1
-type="AnimationLibrary"
-uid="uid://s63ja3kyxm3o"
-path="res://.godot/imported/Stabbing.fbx-2a81814b0bb332e4f7191404b901b883.res"
+type="PackedScene"
+uid="uid://dmykr1uig186h"
+path="res://.godot/imported/Stabbing.fbx-2a81814b0bb332e4f7191404b901b883.scn"
 
 [deps]
 
 source_file="res://assets/models/bunny/anim/Stabbing.fbx"
-dest_files=["res://.godot/imported/Stabbing.fbx-2a81814b0bb332e4f7191404b901b883.res"]
+dest_files=["res://.godot/imported/Stabbing.fbx-2a81814b0bb332e4f7191404b901b883.scn"]
 
 [params]
 
@@ -41,10 +41,10 @@ _subresources={
 "animations": {
 "mixamo_com": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/models/bunny/anim/stab.anim",
-"save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "uid://bj36rfa6dqpc8",
-"settings/loop_mode": 1,
+"save_to_file/fallback_path": "res://assets/models/bunny/anim/stabbing.anim",
+"save_to_file/keep_custom_tracks": true,
+"save_to_file/path": "uid://bu4ymev52py4w",
+"settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
 "slice_1/name": "",

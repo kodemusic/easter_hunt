@@ -13,7 +13,7 @@ height = 1.6
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dovo2"]
 transparency = 1
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 0.15686275)
+albedo_color = Color(1, 1, 1, 0.13725491)
 roughness = 0.19
 
 [sub_resource type="SphereMesh" id="SphereMesh_gmlin"]
@@ -47,19 +47,21 @@ transform = Transform3D(-1.09241025e-08, -2.860577e-10, -0.25, -0.0016013235, 0.
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Camera3D/flashlight" unique_id=876085931]
 transform = Transform3D(-4.371139e-08, -4.833079e-23, 1, -7.872324e-17, 1, 4.4889688e-23, -1, -7.872324e-17, -4.371139e-08, -5.856992, 0.09510827, 1.7881393e-07)
-light_color = Color(0.8946528, 0.8378028, 0.5701827, 1)
+light_color = Color(0.93975925, 0.9038087, 0.7222146, 1)
 light_energy = 2.7
 light_bake_mode = 1
+shadow_bias = 2.849
+shadow_normal_bias = 1.76
 spot_range = 8.0
 spot_angle = 47.0
-spot_angle_attenuation = 9.513649
+spot_angle_attenuation = 3.1383371
 script = ExtResource("4_flas")
 base_energy = 5.265
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="Camera3D/flashlight" unique_id=1678293897]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.63454, 7.5126123, 4.172325e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 1.6653345e-16, -1.0658141e-14, -3.0531133e-16, 1, -18.358946, 3.456647, 7.748604e-07)
 amount = 75
-lifetime = 0.2
+lifetime = 1.5
 speed_scale = 0.1
 randomness = 0.5
 lifetime_randomness = 0.1

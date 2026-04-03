@@ -5,6 +5,7 @@ extends Node
 @export var spawn_points: Array[Marker3D]
 @export var min_interval: float = 10.0
 @export var max_interval: float = 40.0
+@export var min_spawn_distance: float = 8.0
 
 var _spawn_timer: float = 0.0
 var _egg_count: int = 0
@@ -30,7 +31,15 @@ func _reset_timer() -> void:
 func show_rabbit_at_random() -> void:
 	if spawn_points.is_empty() or rabbit == null or player == null:
 		return
-	var point: Marker3D = spawn_points.pick_random()
+	var valid: Array[Marker3D] = []
+	for p in spawn_points:
+		if p.global_position.distance_to(player.global_position) >= min_spawn_distance:
+			valid.append(p)
+	if valid.is_empty():
+		print("[EnemyManager] all spawn points too close to player, skipping spawn")
+		_reset_timer()
+		return
+	var point: Marker3D = valid.pick_random()
 	rabbit.appear_at(point.global_position, player)
 
 func chase_from_random() -> void:

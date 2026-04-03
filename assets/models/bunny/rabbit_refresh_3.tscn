@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ho0fh1mu8q68"]
 
 [ext_resource type="PackedScene" uid="uid://c1x78kka4r2bk" path="res://assets/models/bunny/rabbit_refresh3.glb" id="1_2oylx"]
-[ext_resource type="AnimationLibrary" uid="uid://dd01qh77kn3j5" path="res://assets/models/bunny/Unarmed Idle.fbx" id="2_f7sm4"]
+[ext_resource type="AnimationLibrary" uid="uid://cx07k65c8g8tc" path="res://assets/models/bunny/anim/Breathing Idle.fbx" id="2_f7sm4"]
 
 [node name="rabbit_refresh3" unique_id=1058156365 instance=ExtResource("1_2oylx")]
 transform = Transform3D(1, 0, 0, 0, -0.02907312, 0.9995773, 0, -0.9995773, -0.02907312, 0, 0, 0)

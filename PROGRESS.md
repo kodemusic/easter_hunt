@@ -47,9 +47,9 @@
 | System | Status | File | Notes |
 |--------|--------|------|-------|
 | Bunny visual presence | ✅ Done | `scenes/enemies/rabbit.tscn` | works visually |
-| Bunny AI | ⬜ Pending | `scripts/enemies/bunny_ai.gd` | placeholder |
+| Bunny AI | ✅ Done | `scripts/enemies/bunny_ai.gd` | HIDDEN→VISIBLE(stare)→CHASE→CATCH states; gravity; smooth rotation; anim speed exports; flashlight proximity; emits player_caught signal |
 | Patrol | ⬜ Pending | `scripts/enemies/patrol.gd` | placeholder |
-| Enemy manager | ⬜ Pending | `scripts/managers/EnemieManager.gd` | placeholder |
+| Enemy manager | ✅ Done | `scripts/managers/EnemieManager.gd` | timer-based spawning; egg-count frequency scaling; min spawn distance filter (8m); reload on catch |
 
 ---
 
@@ -90,3 +90,6 @@
 - `collide_with_areas = true` required on raycast query — Area3D eggs were invisible to ray by default
 - `NodePath("Camera3D")` was wrong (looked for child); fixed to `NodePath("../Camera3D")` (sibling)
 - EggPickup Area3D was nested inside scaled egg_1 (0.02×) making collision sphere 0.05 world units — moved to root, radius now 0.4
+- `egg_pickup.gd` had bunny AI code pasted into it by accident — no `interact()` method, pickup silently skipped
+- Bunny AnimationPlayer has `"idle "` with a trailing space — that is the real key name; `"idle"` will not found
+- EnemyManager: rabbit export not assigned → nil crash on `player_caught` signal connect; guarded with null check + push_error
