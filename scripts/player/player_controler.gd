@@ -15,6 +15,7 @@ extends CharacterBody3D
 var pitch: float = 0.0
 var _bob_timer: float = 0.0
 var _camera_base_y: float = 0.0
+var _step_timer: float = 0.0
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -65,6 +66,10 @@ func _apply_headbob(delta: float) -> void:
 	if is_on_floor() and flat_speed > 0.5:
 		_bob_timer += delta * bob_frequency * (flat_speed / walk_speed)
 		camera.position.y = _camera_base_y + sin(_bob_timer * TAU) * bob_amplitude
+		_step_timer -= delta
+		if _step_timer <= 0.0:
+			AudioManager.play_footstep()
+			_step_timer = 0.5 / (bob_frequency * (flat_speed / walk_speed))
 	else:
 		_bob_timer = lerp(_bob_timer, 0.0, delta * 6.0)
 		camera.position.y = lerp(camera.position.y, _camera_base_y, delta * 6.0)

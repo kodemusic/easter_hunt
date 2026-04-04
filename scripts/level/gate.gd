@@ -8,6 +8,7 @@ func _ready() -> void:
 
 func _on_egg_collected(total: int) -> void:
 	if total >= eggs_required:
+		AudioManager.play_gate_open()
 		visible = false
 		# Disable all collision shapes so the player can walk through
 		for child in find_children("*", "CollisionShape3D", true, false):

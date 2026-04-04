@@ -23,11 +23,18 @@ var player: Node3D
 var chase_timer := 0.0
 var _stare_timer := 0.0
 var _anim: AnimationPlayer
+var _nav: NavigationAgent3D
 var _caught := false
 var _debug_tick := 0.0
 
 func _ready() -> void:
 	_anim = $AnimationPlayer
+	_nav  = get_node_or_null("NavigationAgent3D")
+	if _nav == null:
+		push_warning("[Bunny] No NavigationAgent3D found — bunny will walk through walls. Add one in the editor.")
+	else:
+		_nav.path_desired_distance    = 0.5
+		_nav.target_desired_distance  = catch_distance
 	print("[Bunny] animations available: ", _anim.get_animation_list())
 	set_hidden()
 
@@ -35,8 +42,10 @@ func set_hidden() -> void:
 	state = State.HIDDEN
 	visible = false
 	process_mode = Node.PROCESS_MODE_DISABLED
+	velocity = Vector3.ZERO
 	if flashlight:
 		flashlight.set_bunny_near(false)
+	AudioManager.set_rabbit_active(false)
 	print("[Bunny] → HIDDEN")
 
 func appear_at(pos: Vector3, target: Node3D) -> void:
@@ -48,9 +57,11 @@ func appear_at(pos: Vector3, target: Node3D) -> void:
 	_stare_timer = stare_duration
 	chase_timer = 0.0
 	_caught = false
+	velocity = Vector3.ZERO
 	look_at(Vector3(player.global_position.x, global_position.y, player.global_position.z), Vector3.UP)
 	_anim.speed_scale = idle_speed
 	_anim.play("idle")
+	AudioManager.play_rabbit_appear()
 	print("[Bunny] → VISIBLE at ", pos, " | stare_timer=", stare_duration)
 
 func begin_chase(duration: float = -1.0) -> void:
@@ -102,14 +113,22 @@ func _tick_chase(delta: float) -> void:
 		set_hidden()
 		return
 
-	var dir := (player.global_position - global_position)
-	dir.y = 0.0
-	dir = dir.normalized()
+	# Update nav target every frame so bunny tracks moving player
+	var dir: Vector3
+	if _nav != null:
+		_nav.target_position = player.global_position
+		if not _nav.is_navigation_finished():
+			var next := _nav.get_next_path_position()
+			dir = (next - global_position)
+			dir.y = 0.0
+			dir = dir.normalized()
+	else:
+		dir = (player.global_position - global_position)
+		dir.y = 0.0
+		dir = dir.normalized()
 
-	var target_vx := dir.x * move_speed
-	var target_vz := dir.z * move_speed
-	velocity.x = lerp(velocity.x, target_vx, acceleration * delta)
-	velocity.z = lerp(velocity.z, target_vz, acceleration * delta)
+	velocity.x = lerp(velocity.x, dir.x * move_speed, acceleration * delta)
+	velocity.z = lerp(velocity.z, dir.z * move_speed, acceleration * delta)
 
 	if not is_on_floor():
 		velocity.y -= GRAVITY * delta
@@ -130,13 +149,18 @@ func _trigger_catch() -> void:
 	_caught = true
 	state = State.CATCH
 	velocity = Vector3.ZERO
+	process_mode = Node.PROCESS_MODE_DISABLED
 	_anim.speed_scale = stab_speed
 	_anim.play("stab")
+	AudioManager.set_rabbit_active(false)
 	print("[Bunny] → CATCH — emitting player_caught")
 	emit_signal("player_caught")
 
 func _update_flashlight_proximity() -> void:
-	if not flashlight or player == null:
+	if player == null:
 		return
 	var dist := global_position.distance_to(player.global_position)
-	flashlight.set_bunny_near(dist < near_distance)
+	var is_near := dist < near_distance
+	if flashlight:
+		flashlight.set_bunny_near(is_near)
+	AudioManager.set_rabbit_active(is_near or state == State.CHASE)

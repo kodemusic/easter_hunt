@@ -13,7 +13,8 @@
 | Gravity | ✅ Done | `scripts/player/player_controler.gd` | 18 m/s² |
 | Head bob | ✅ Done | `scripts/player/player_controler.gd` | amp 0.05, freq 2.0, scales with speed |
 | Flashlight (SpotLight3D + particles) | ✅ Done | `scenes/player/player.tscn` | attached to Camera3D, warm color |
-| Flashlight flicker (2-layer + bunny proximity) | ✅ Done | `scripts/player/flashlight.gd` | micro ±0.05 every frame; macro dip event every 3–8s (1–2s near bunny); call `set_bunny_near(true)` from bunny_ai |
+| Flashlight flicker (2-layer + bunny proximity) | ✅ Done | `scripts/player/flashlight.gd` | micro ±0.05 every frame; macro dip every 3–8s (1–2s near bunny); called by bunny_ai |
+| Footstep audio | ✅ Done | `scripts/player/player_controler.gd` | step timer synced to bob frequency, calls AudioManager.play_footstep() |
 | Interaction raycast (press E) | ✅ Done | `scripts/player/interactions.gd` | 2.5m range, hits Area3D + bodies, walks node hierarchy for "interactable" group |
 | Camera script | ⬜ Pending | `scripts/player/camera_3d.gd` | placeholder — no effects yet |
 
@@ -24,9 +25,9 @@
 | System | Status | File | Notes |
 |--------|--------|------|-------|
 | EggPickup scene | ✅ Done | `scenes/pickups/EggPickup.tscn` | egg.glb + Area3D (r=0.4) at root level, "interactable" group, egg_pickup.gd attached |
-| egg_pickup.gd — interact() stub | ✅ Done | `scripts/pickups/egg_pickup.gd` | calls queue_free(), prints name |
-| egg_pickup.gd — signal to GameManager | ⬜ Pending | `scripts/pickups/egg_pickup.gd` | needs egg_collected signal → GameManager |
-| Egg counter (total collected) | ⬜ Pending | `autoload/GameManager.gd` | — |
+| egg_pickup.gd — interact() stub | ✅ Done | `scripts/pickups/egg_pickup.gd` | calls GameManager.collect_egg() + queue_free() |
+| egg_pickup.gd — signal to GameManager | ✅ Done | `scripts/pickups/egg_pickup.gd` | calls GameManager.collect_egg() in interact() |
+| Egg counter (total collected) | ✅ Done | `autoload/GameManager.gd` | egg_count var + egg_collected(total) signal |
 | CheckpointShrine | ⬜ Pending | `scenes/pickups/CheckpointShrine.tscn` / `scripts/pickups/checkpoint.gd` | placeholder |
 
 ---
@@ -36,7 +37,7 @@
 | System | Status | File | Notes |
 |--------|--------|------|-------|
 | Level layout | ✅ Done | `scenes/level/level01.tscn` | built and imported |
-| Gate (opens on egg count) | ⬜ Pending | `scripts/level/gate.gd` | placeholder |
+| Gate (opens on egg count) | ✅ Done | `scripts/level/gate.gd` | hides mesh + disables CollisionShape3D children; plays gate SFX via AudioManager |
 | Door | ⬜ Pending | `scripts/level/door.gd` | placeholder |
 | Trigger zones | ⬜ Pending | `scripts/level/trigger_zone.gd` | placeholder |
 
@@ -67,7 +68,8 @@
 
 | System | Status | File | Notes |
 |--------|--------|------|-------|
-| GameManager | ⬜ Pending | `autoload/GameManager.gd` | placeholder — will hold egg count, signals |
+| GameManager | ✅ Done | `autoload/GameManager.gd` | egg_count, egg_collected signal |
+| AudioManager | ✅ Done | `autoload/AudioManager.gd` | music (loop), ambience (loop), rabbit SFX (appear + periodic near/chase), gate SFX, footsteps (random from 3 wet files, pitch variation) |
 
 ---
 

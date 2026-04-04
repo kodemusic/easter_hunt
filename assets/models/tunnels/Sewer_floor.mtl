@@ -1,0 +1,192 @@
+# Blender 5.0.1 MTL File: 'Sewer1.blend'
+# www.blender.org
+
+newmtl brick_modern.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd I:/sprites/psx/Sewer/Textures/brick_modern.jpg
+
+newmtl brick_modern.004
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd I:/sprites/psx/Sewer/Textures/brick_modern.jpg
+
+newmtl brick_modern.006
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd I:/sprites/psx/Sewer/Textures/brick_modern.jpg
+
+newmtl brick_modern_01.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd I:/sprites/psx/Sewer/Textures/brick_modern_01.jpg
+
+newmtl brick_modern_01.002
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd I:/sprites/psx/Sewer/Textures/brick_modern_01.jpg
+
+newmtl brick_modern_01.003
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd I:/sprites/psx/Sewer/Textures/brick_modern_01.jpg
+
+newmtl brick_modern_01.004
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd I:/sprites/psx/Sewer/Textures/brick_modern_01.jpg
+
+newmtl brick_modern_01.005
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd I:/sprites/psx/Sewer/Textures/brick_modern_01.jpg
+
+newmtl brick_modern_01.006
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd I:/sprites/psx/Sewer/Textures/brick_modern_01.jpg
+
+newmtl brick_pavement.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd I:/sprites/psx/Sewer/Textures/brick_pavement.jpg
+
+newmtl brick_pavement.004
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd I:/sprites/psx/Sewer/Textures/brick_pavement.jpg
+
+newmtl concrete_bare_01.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd I:/sprites/psx/Sewer/Textures/concrete_bare_01.jpg
+
+newmtl concrete_bare_01.004
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd I:/sprites/psx/Sewer/Textures/concrete_bare_01.jpg
+
+newmtl concrete_base.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd I:/sprites/psx/Sewer/Textures/concrete_base.png
+
+newmtl concrete_base.002
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd I:/sprites/psx/Sewer/Textures/concrete_base.png
+
+newmtl concrete_base.003
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd I:/sprites/psx/Sewer/Textures/concrete_base.png
+
+newmtl concrete_base.004
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd I:/sprites/psx/Sewer/Textures/concrete_base.png
+
+newmtl concrete_base.005
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd I:/sprites/psx/Sewer/Textures/concrete_base.png
+
+newmtl concrete_base.006
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd I:/sprites/psx/Sewer/Textures/concrete_base.png
