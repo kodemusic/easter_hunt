@@ -33,6 +33,9 @@ func show_rabbit_at_random() -> void:
 		return
 	var valid: Array[Marker3D] = []
 	for p in spawn_points:
+		if not is_instance_valid(p):
+			push_warning("[EnemyManager] spawn_points contains a null/deleted Marker3D — remove it in the Inspector.")
+			continue
 		if p.global_position.distance_to(player.global_position) >= min_spawn_distance:
 			valid.append(p)
 	if valid.is_empty():

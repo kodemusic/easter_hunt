@@ -17,7 +17,8 @@ extends Node
 # ── Single streams ────────────────────────────────────────────────────────────
 const _MUSIC  := preload("res://audio/music/837910__universfield__tense-horror-atmosphere.mp3")
 const _RABBIT := preload("res://audio/sfx/397312__quetzalcontla__rabbit-3.wav")
-const _GATE   := preload("res://audio/sfx/doors/386531__glennm__gate_closing_interact_edit.wav")
+const _GATE   := preload("res://audio/sfx/doors/gate_close.mp3")
+const _WHISPERS := preload("res://audio/ambience/atmosphere/whispers.mp3")
 
 # ── Random-pick banks ─────────────────────────────────────────────────────────
 const _AMBIENCE_BANK: Array = [
@@ -29,6 +30,7 @@ const _AMBIENCE_BANK: Array = [
 const _STEPS_BANK: Array = [
 	preload("res://audio/sfx/footsteps/464610__d001447733__water_footsteps.wav"),
 	preload("res://audio/sfx/footsteps/611278__xkeril__footsteps-on-slush.wav"),
+	preload("res://audio/sfx/footsteps/204035__duckduckpony__footsteps_water_light_008.wav")
 ]
 
 const _ENEMY_STING_BANK: Array = [
@@ -43,6 +45,7 @@ const _ENEMY_STING_BANK: Array = [
 @export_range(-40.0, 6.0, 0.5) var gate_db: float        = -2.0
 @export_range(-40.0, 6.0, 0.5) var footstep_db: float    = -14.0
 @export_range(-40.0, 6.0, 0.5) var enemy_sting_db: float = -6.0
+@export_range(-40.0, 6.0, 0.5) var whispers_db: float    = -8.0
 
 # ── Fade exports ──────────────────────────────────────────────────────────────
 @export_group("Fades (seconds)")
@@ -69,7 +72,7 @@ func _ready() -> void:
 	_players["gate"]        = _make_player(_GATE,     gate_db,        false, "SFX")
 	_players["footstep"]    = _make_player(null,      footstep_db,    false, "SFX")
 	_players["enemy_sting"] = _make_player(null,      enemy_sting_db, false, "SFX")
-
+	_players["whispers"]    = _make_player(_WHISPERS, whispers_db,    false, "SFX")
 	# Start music with fade-in
 	_players["music"].volume_db = -40.0
 	_players["music"].play()
@@ -185,7 +188,7 @@ func play_gate_open() -> void:
 
 ## Footstep — random pick, pitch varied
 func play_footstep() -> void:
-	_players["footstep"].pitch_scale = randf_range(0.9, 1.1)
+	_players["footstep"].pitch_scale = randf_range(0.85, 0.9)
 	_play_random(_STEPS_BANK, _players["footstep"])
 
 ## Distant enemy sting — random pick from enemy bank
