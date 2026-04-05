@@ -56,6 +56,7 @@ const _ENEMY_STING_BANK: Array = [
 
 # ── Players ───────────────────────────────────────────────────────────────────
 var _players: Dictionary = {}
+var _tweens: Dictionary = {}  # one active tween per player key
 
 # ── Rabbit / ambience state ───────────────────────────────────────────────────
 var _rabbit_active: bool  = false
@@ -82,7 +83,7 @@ func _ready() -> void:
 	# Start music with fade-in
 	_players["music"].volume_db = -40.0
 	_players["music"].play()
-	_fade_to(_players["music"], music_db, music_fade_in)
+	_fade_to("music", _players["music"], music_db, music_fade_in)
 
 	# Start first ambience clip
 	_start_ambience_clip(0, ambience_fade_in)
@@ -141,19 +142,18 @@ func _start_ambience_clip(idx: int, fade_in: float) -> void:
 	p.stream = clip
 	p.volume_db = -40.0
 	p.play()
-	_fade_to(p, ambience_db, fade_in)
+	_fade_to("ambience", p, ambience_db, fade_in)
 
 func _advance_ambience() -> void:
 	var next_idx := (_ambience_idx + 1) % _AMBIENCE_BANK.size()
 	var clip: AudioStream = _AMBIENCE_BANK[next_idx]
-	# Swap slots: fade out current into "ambience", fade in next into "ambience_b"
 	var pa: AudioStreamPlayer = _players["ambience"]
 	var pb: AudioStreamPlayer = _players["ambience_b"]
 	pb.stream = clip
 	pb.volume_db = -40.0
 	pb.play()
-	_fade_to(pa, -40.0, ambience_crossfade)
-	_fade_to(pb, ambience_db, ambience_crossfade)
+	_fade_to("ambience",   pa, -40.0,       ambience_crossfade)
+	_fade_to("ambience_b", pb, ambience_db,  ambience_crossfade)
 	# Swap references so "ambience" always points to the active slot
 	_players["ambience"]   = pb
 	_players["ambience_b"] = pa
@@ -168,12 +168,15 @@ func _get_ambience_clip_length(idx: int) -> float:
 
 # ── Fade helper ───────────────────────────────────────────────────────────────
 
-func _fade_to(player: AudioStreamPlayer, target_db: float, duration: float) -> void:
+func _fade_to(key: String, player: AudioStreamPlayer, target_db: float, duration: float) -> void:
 	if duration <= 0.0:
 		player.volume_db = target_db
 		return
+	if _tweens.has(key) and is_instance_valid(_tweens[key]):
+		_tweens[key].kill()
 	var t := create_tween()
 	t.tween_property(player, "volume_db", target_db, duration)
+	_tweens[key] = t
 
 # ── Random-pick helper ────────────────────────────────────────────────────────
 
@@ -210,11 +213,11 @@ func play_enemy_sting() -> void:
 
 ## Music fade out (e.g. on death screen)
 func fade_out_music() -> void:
-	_fade_to(_players["music"], -40.0, music_fade_out)
+	_fade_to("music", _players["music"], -40.0, music_fade_out)
 
 ## Music fade in (e.g. on scene reload)
 func fade_in_music() -> void:
-	_fade_to(_players["music"], music_db, music_fade_in)
+	_fade_to("music", _players["music"], music_db, music_fade_in)
 
 ## Set whole bus volume (0.0–1.0 linear) — call from settings UI
 func set_music_volume(linear: float) -> void:

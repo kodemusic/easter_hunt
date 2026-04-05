@@ -25,7 +25,6 @@ var _stare_timer := 0.0
 var _anim: AnimationPlayer
 var _nav: NavigationAgent3D
 var _caught := false
-var _debug_tick := 0.0
 
 func _ready() -> void:
 	_anim = $AnimationPlayer
@@ -35,7 +34,6 @@ func _ready() -> void:
 	else:
 		_nav.path_desired_distance    = 0.5
 		_nav.target_desired_distance  = catch_distance
-	print("[Bunny] animations available: ", _anim.get_animation_list())
 	set_hidden()
 
 func set_hidden() -> void:
@@ -46,7 +44,6 @@ func set_hidden() -> void:
 	if flashlight:
 		flashlight.set_bunny_near(false)
 	AudioManager.set_rabbit_active(false)
-	print("[Bunny] → HIDDEN")
 
 func appear_at(pos: Vector3, target: Node3D) -> void:
 	global_position = pos
@@ -62,25 +59,16 @@ func appear_at(pos: Vector3, target: Node3D) -> void:
 	_anim.speed_scale = idle_speed
 	_anim.play("idle")
 	AudioManager.play_rabbit_appear()
-	print("[Bunny] → VISIBLE at ", pos, " | stare_timer=", stare_duration)
 
 func begin_chase(duration: float = -1.0) -> void:
 	state = State.CHASE
 	chase_timer = duration if duration > 0.0 else chase_duration
 	_anim.speed_scale = walk_speed
 	_anim.play("walk")
-	print("[Bunny] → CHASE | chase_timer=", chase_timer)
 
 func _physics_process(delta: float) -> void:
 	if state == State.HIDDEN or player == null or _caught:
 		return
-
-	_debug_tick -= delta
-	if _debug_tick <= 0.0:
-		_debug_tick = 1.0
-		var dist := global_position.distance_to(player.global_position)
-		print("[Bunny] state=", State.keys()[state], " dist=", snappedf(dist, 0.1),
-			" stare=", snappedf(_stare_timer, 0.1), " chase=", snappedf(chase_timer, 0.1))
 
 	_update_flashlight_proximity()
 
@@ -153,7 +141,6 @@ func _trigger_catch() -> void:
 	_anim.speed_scale = stab_speed
 	_anim.play("stab")
 	AudioManager.set_rabbit_active(false)
-	print("[Bunny] → CATCH — emitting player_caught")
 	emit_signal("player_caught")
 
 func _update_flashlight_proximity() -> void:
