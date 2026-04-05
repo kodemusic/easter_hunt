@@ -37,6 +37,414 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"materials": {
+"Garbage_bag": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/models/props/debri/debri_materials/Garbage_bag.tres",
+"use_external/path": "uid://yomkoyuwep7a"
+},
+"Metal": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/models/props/debri/debri_materials/Metal.res",
+"use_external/path": "uid://c1078k2k41yb3"
+},
+"Pipes": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/models/props/debri/debri_materials/Pipes.res",
+"use_external/path": "uid://bxx7j6hmst3lk"
+},
+"Pipes.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/models/props/debri/debri_materials/Pipes.001.res",
+"use_external/path": "uid://c3wuk8a00a6r3"
+},
+"Trash": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/models/props/debri/debri_materials/Trash.tres",
+"use_external/path": "uid://53xjhktdg2su"
+},
+"Trash_01": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/models/props/debri/debri_materials/Trash_01.tres",
+"use_external/path": "uid://c63dkwdgx73yl"
+},
+"brick_modern": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/models/props/debri/debri_materials/brick_modern.tres",
+"use_external/path": "uid://gm4yw4x47bgc"
+},
+"brick_modern_01": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/models/props/debri/debri_materials/brick_modern_01.tres",
+"use_external/path": "uid://djexyh0tq7orf"
+},
+"brick_pavement": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/models/props/debri/debri_materials/brick_pavement.tres",
+"use_external/path": "uid://540dqhhyyd63"
+},
+"bricks": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/models/props/debri/debri_materials/bricks.tres",
+"use_external/path": "uid://i3akywu5x155"
+},
+"concrete_bare_01": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/models/props/debri/debri_materials/concrete_bare_01.res",
+"use_external/path": "uid://xxksdnxek2gw"
+},
+"concrete_base": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/models/props/debri/debri_materials/concrete_base.res",
+"use_external/path": "uid://ciim6tv5xksqm"
+},
+"concrete_base_02": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/models/props/debri/debri_materials/concrete_base_02.res",
+"use_external/path": "uid://cgcu6mle2jf5o"
+},
+"concrete_base_03": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/models/props/debri/debri_materials/concrete_base_03.res",
+"use_external/path": "uid://05c4u1oweebc"
+},
+"concrete_dirty": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/models/props/debri/debri_materials/concrete_dirty.res",
+"use_external/path": "uid://dmd47xfewa5tp"
+},
+"debris": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/models/props/debri/debri_materials/debris.tres",
+"use_external/path": "uid://cbo3g38cneynt"
+},
+"debris_01": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/models/props/debri/debri_materials/debris_01.tres",
+"use_external/path": "uid://sr8irup2j3kd"
+},
+"debris_02": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/models/props/debri/debri_materials/debris_02.tres",
+"use_external/path": "uid://c1yjlki03wr8o"
+},
+"debris_03": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/models/props/debri/debri_materials/debris_03.tres",
+"use_external/path": "uid://dgdr3qjkgxvde"
+},
+"door_metal": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/models/props/debri/debri_materials/door_metal.res",
+"use_external/path": "uid://m6ci464hmojp"
+},
+"door_metal_01": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/models/props/debri/debri_materials/door_metal_01.res",
+"use_external/path": "uid://yuvsham8o654"
+},
+"door_metal_02": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/models/props/debri/debri_materials/door_metal_02.res",
+"use_external/path": "uid://bc0x2cvhv0dwv"
+},
+"soil_mud": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/models/props/debri/debri_materials/soil_mud.res",
+"use_external/path": "uid://cfk8bfwwabtf8"
+}
+},
+"meshes": {
+"Sewer1_Box_T": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_Box_T.res",
+"save_to_file/path": "uid://b5d8b5q3mflbd"
+},
+"Sewer1_Box_T_01": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_Box_T_01.res",
+"save_to_file/path": "uid://bt47c8o63s7fe"
+},
+"Sewer1_Box_T_02": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_Box_T_02.res",
+"save_to_file/path": "uid://bhmkr8hahi6vb"
+},
+"Sewer1_Box_T_03": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_Box_T_03.res",
+"save_to_file/path": "uid://b7sxptj64l0l6"
+},
+"Sewer1_Brick": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_Brick.res",
+"save_to_file/path": "uid://cbghtxfa4doku"
+},
+"Sewer1_Bricks": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_Bricks.res",
+"save_to_file/path": "uid://djk58oi3h0vhm"
+},
+"Sewer1_Garbage_bag": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_Garbage_bag.res",
+"save_to_file/path": "uid://h0mtixediup0"
+},
+"Sewer1_Garbage_bag_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_Garbage_bag_001.res",
+"save_to_file/path": "uid://bb46j5xddjlyt"
+},
+"Sewer1_TB": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_TB.res",
+"save_to_file/path": "uid://chb134j02bjkj"
+},
+"Sewer1_Tire": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_Tire.res",
+"save_to_file/path": "uid://bcubwyhqawk6o"
+},
+"Sewer1_Trash": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_Trash.res",
+"save_to_file/path": "uid://romy8hfpmja0"
+},
+"Sewer1_Trash_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_Trash_001.res",
+"save_to_file/path": "uid://cvy1iavebg32w"
+},
+"Sewer1_Trash_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_Trash_002.res",
+"save_to_file/path": "uid://ccoluh8p3j45u"
+},
+"Sewer1_Trash_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_Trash_003.res",
+"save_to_file/path": "uid://bh5r28uy63y1v"
+},
+"Sewer1_Trash_004": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_Trash_004.res",
+"save_to_file/path": "uid://dl65d82sry12c"
+},
+"Sewer1_Trash_005": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_Trash_005.res",
+"save_to_file/path": "uid://dfpx2mjo0ilve"
+},
+"Sewer1_Trash_006": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_Trash_006.res",
+"save_to_file/path": "uid://c5wvnrpakns7x"
+},
+"Sewer1_Trash_007": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_Trash_007.res",
+"save_to_file/path": "uid://cewxaeaofh0dq"
+},
+"Sewer1_Trash_008": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_Trash_008.res",
+"save_to_file/path": "uid://bcj2gq0ppl3v5"
+},
+"Sewer1_Trash_009": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_Trash_009.res",
+"save_to_file/path": "uid://dgvim22yufnkf"
+},
+"Sewer1_Trash_010": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_Trash_010.res",
+"save_to_file/path": "uid://bmn1jvhpfoh8h"
+},
+"Sewer1_Trash_011": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_Trash_011.res",
+"save_to_file/path": "uid://drth51couoslj"
+},
+"Sewer1_Trash_012": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_Trash_012.res",
+"save_to_file/path": "uid://bdx0tqbqn8qhl"
+},
+"Sewer1_Trash_013": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_Trash_013.res",
+"save_to_file/path": "uid://c2ve3v5r2p4wv"
+},
+"Sewer1_Trash_M": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_Trash_M.res",
+"save_to_file/path": "uid://de03as27fdue3"
+},
+"Sewer1_Trash_M_01": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "",
+"save_to_file/path": ""
+},
+"Sewer1_debris": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_debris.res",
+"save_to_file/path": "uid://deq40bnq28omg"
+},
+"Sewer1_debris_01": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_debris_01.res",
+"save_to_file/path": "uid://c0j4hu8ej7efj"
+},
+"Sewer1_debris_02": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_debris_02.res",
+"save_to_file/path": "uid://xdihmp2oxtei"
+},
+"Sewer1_debris_03": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_debris_03.res",
+"save_to_file/path": "uid://b1pcdbqtqht0b"
+},
+"Sewer1_debris_04": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_debris_04.res",
+"save_to_file/path": "uid://dd1ilg8t7kjgi"
+},
+"Sewer1_debris_05": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/models/props/debri/Sewer1_debris_05.res",
+"save_to_file/path": "uid://b1jr62at20jt3"
+}
+}
+}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cyow4vi1cpj8l"]
+
+[ext_resource type="PackedScene" uid="uid://cquw1ov3u1tca" path="res://assets/models/props/lights/lamp_2_on.glb" id="1_55xp0"]
+[ext_resource type="Script" uid="uid://byudlj3iltv26" path="res://scripts/level/hall_light.gd" id="2_d1aid"]
+
+[node name="hall_light" unique_id=1827944794 instance=ExtResource("1_55xp0")]
+script = ExtResource("2_d1aid")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="lamp_2_on" parent_id_path=PackedInt32Array(1093912479) index="0" unique_id=1136775630]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0.07216853)
+light_color = Color(0.56078434, 0.65882355, 0.47843137, 1)
+light_bake_mode = 1
+omni_range = 4.0

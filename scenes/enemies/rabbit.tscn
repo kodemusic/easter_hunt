@@ -134,5 +134,6 @@ libraries/ = SubResource("AnimationLibrary_8e74j")
 autoplay = &"idle"
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="3" unique_id=1840206605]
-path_postprocessing = 1
-simplify_path = true
+avoidance_enabled = true
+height = 1.8
+radius = 0.25

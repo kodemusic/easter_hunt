@@ -63,6 +63,12 @@ var _rabbit_timer: float  = 0.0
 var _ambience_timer: float = 0.0
 var _ambience_idx: int    = 0   # which bank clip is currently playing
 
+# ── Whispers state ────────────────────────────────────────────────────────────
+@export_group("Whispers")
+@export_range(10.0, 60.0, 1.0) var whispers_interval_min: float = 20.0
+@export_range(10.0, 60.0, 1.0) var whispers_interval_max: float = 40.0
+var _whispers_timer: float = 0.0
+
 func _ready() -> void:
 	_ensure_buses()
 	_players["music"]       = _make_player(_MUSIC,   music_db,       true,  "Music")
@@ -83,6 +89,7 @@ func _ready() -> void:
 
 	_rabbit_timer  = randf_range(4.0, 8.0)
 	_ambience_timer = _get_ambience_clip_length(0)
+	_whispers_timer = randf_range(whispers_interval_min, whispers_interval_max)
 
 func _ensure_buses() -> void:
 	if AudioServer.get_bus_index("Music") == -1:
@@ -119,6 +126,12 @@ func _process(delta: float) -> void:
 	_ambience_timer -= delta
 	if _ambience_timer <= 0.0:
 		_advance_ambience()
+
+	# Periodic whispers
+	_whispers_timer -= delta
+	if _whispers_timer <= 0.0:
+		_play_whispers()
+		_whispers_timer = randf_range(whispers_interval_min, whispers_interval_max)
 
 # ── Ambience cycling ──────────────────────────────────────────────────────────
 
@@ -220,3 +233,7 @@ func set_channel_db(key: String, db: float) -> void:
 func _play_rabbit_periodic() -> void:
 	_players["rabbit"].volume_db = rabbit_db - 5.0
 	_players["rabbit"].play()
+
+func _play_whispers() -> void:
+	_players["whispers"].volume_db = whispers_db
+	_players["whispers"].play()

@@ -1,3 +1,11 @@
 [gd_scene format=3 uid="uid://cf2aisp05ukkv"]
 
-[node name="Trash" type="Node3D" unique_id=891439067]
+[ext_resource type="PackedScene" uid="uid://bkrcp4kf31eqy" path="res://assets/models/props/debri/debri_materials/props.glb" id="1_ekqcp"]
+
+[node name="props" unique_id=71052943 instance=ExtResource("1_ekqcp")]
+
+[node name="Trash_010" parent="." index="10" unique_id=1547470272]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.691745, -0.048520923, 97.59488)
+
+[node name="TB" parent="." index="17" unique_id=1292116098]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.434086, 0.10945372, 0.096588135)

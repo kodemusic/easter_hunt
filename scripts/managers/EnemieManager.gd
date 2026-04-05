@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 
 @export var rabbit: Node3D
 @export var player: Node3D
@@ -32,14 +32,19 @@ func show_rabbit_at_random() -> void:
 	if spawn_points.is_empty() or rabbit == null or player == null:
 		return
 	var valid: Array[Marker3D] = []
+	var space_state = get_world_3d().direct_space_state
 	for p in spawn_points:
 		if not is_instance_valid(p):
 			push_warning("[EnemyManager] spawn_points contains a null/deleted Marker3D — remove it in the Inspector.")
 			continue
 		if p.global_position.distance_to(player.global_position) >= min_spawn_distance:
-			valid.append(p)
+			# Check line of sight
+			var query = PhysicsRayQueryParameters3D.create(player.global_position, p.global_position)
+			var result = space_state.intersect_ray(query)
+			if result.is_empty():
+				valid.append(p)
 	if valid.is_empty():
-		print("[EnemyManager] all spawn points too close to player, skipping spawn")
+		print("[EnemyManager] all spawn points too close to player or not in line of sight, skipping spawn")
 		_reset_timer()
 		return
 	var point: Marker3D = valid.pick_random()
@@ -48,7 +53,20 @@ func show_rabbit_at_random() -> void:
 func chase_from_random() -> void:
 	if spawn_points.is_empty() or rabbit == null or player == null:
 		return
-	var point: Marker3D = spawn_points.pick_random()
+	var valid: Array[Marker3D] = []
+	var space_state = get_world_3d().direct_space_state
+	for p in spawn_points:
+		if not is_instance_valid(p):
+			continue
+		# Check line of sight
+		var query = PhysicsRayQueryParameters3D.create(player.global_position, p.global_position)
+		var result = space_state.intersect_ray(query)
+		if result.is_empty():
+			valid.append(p)
+	if valid.is_empty():
+		print("[EnemyManager] no spawn points in line of sight, skipping chase")
+		return
+	var point: Marker3D = valid.pick_random()
 	rabbit.appear_at(point.global_position, player)
 	rabbit.begin_chase(2.0)
 

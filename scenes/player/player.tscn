@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c0n6b5iw7b2ht"]
+[gd_scene format=3 uid="uid://d3tf7t5dk8lhi"]
 
 [ext_resource type="PackedScene" uid="uid://bkv8fnuetccyl" path="res://assets/models/props/flashlight.glb" id="1_8afob"]
 [ext_resource type="Script" uid="uid://bhwtglpfo6u87" path="res://scripts/player/player_controler.gd" id="1_dovo2"]
@@ -56,7 +56,7 @@ spot_range = 8.0
 spot_angle = 47.0
 spot_angle_attenuation = 3.1383371
 script = ExtResource("4_flas")
-base_energy = 5.265
+base_energy = 0.7
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="Camera3D/flashlight" unique_id=1678293897]
 transform = Transform3D(1, 0, 0, 0, 1, 1.6653345e-16, -1.0658141e-14, -3.0531133e-16, 1, -18.358946, 3.456647, 7.748604e-07)

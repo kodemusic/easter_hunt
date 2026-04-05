@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c0n6b5iw7b2ht"]
+
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="1_8afob"]
+
+[node name="Player" unique_id=1989287226 instance=ExtResource("1_8afob")]
+
+[node name="SpotLight3D" parent="Camera3D/flashlight" parent_id_path=PackedInt32Array(408853794) index="1" unique_id=876085931]
+visible = false
